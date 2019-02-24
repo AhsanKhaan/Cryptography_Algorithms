@@ -20,27 +20,28 @@ public interface Cryptography_algo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-//        Vigenere_Cipher vc = new Vigenere_Cipher();
-//        
-//        String enc, dec, txt;
-//        while (true) {
-//            System.out.print("Enter the text you want to encrypt:");
-//            txt = new Scanner(System.in).nextLine();
-//            if (txt.equals("")) {
-//                break;
-//            }
-//            
-//            enc = vc.Encryption(txt);
-//
-//            dec = vc.Decryption(enc);
-//            System.out.print("Your text:");
-//            System.out.println(txt);
-//            System.out.print("Encrypted Text:");
-//            System.out.println(enc);
-//            System.out.print("Decrypted Text:");
-//            System.out.println(dec);
-//            System.out.println("Note:Press Enter to exit");
-//        }
+PolyAlphabetic_Cipher pc=new PolyAlphabetic_Cipher();
+//    pc.printTable();
+    String enc, dec, txt;
+        
+        while (true) {
+            System.out.print("Enter the text you want to encrypt:");
+            txt = new Scanner(System.in).nextLine();
+            if (txt.equals("")) {
+                break;
+            }
+            
+            enc = pc.Encryption(txt);
+
+            dec = pc.Decryption(enc);
+            System.out.print("Your text:");
+            System.out.println(txt);
+            System.out.print("Encrypted Text:");
+            System.out.println(enc);
+            System.out.print("Decrypted Text:");
+            System.out.println(dec);
+            System.out.println("Note:Press Enter to exit");
+        }
 //ArrayList<Character> sequence = new ArrayList<>();
 //for (char c = 'A' ; c <= 'Z' ; c++) {
 //    sequence.add(c);
@@ -49,8 +50,6 @@ public interface Cryptography_algo {
 //for (Character c : sequence) {
 //    System.out.println(c);
 //}
-PolyAlphabetic_Cipher pc=new PolyAlphabetic_Cipher();
-
     }
 
     public String Encryption(String txt);
