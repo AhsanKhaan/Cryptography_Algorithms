@@ -20,7 +20,7 @@ public interface Cryptography_algo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-PolyAlphabetic_Cipher pc=new PolyAlphabetic_Cipher();
+PlayFair_Cipher pfc=new PlayFair_Cipher();
 //    pc.printTable();
     String enc, dec, txt;
         
@@ -29,17 +29,15 @@ PolyAlphabetic_Cipher pc=new PolyAlphabetic_Cipher();
             txt = new Scanner(System.in).nextLine();
             if (txt.equals("")) {
                 break;
-            }
-            
-            enc = pc.Encryption(txt);
+            }  enc = pfc.Encryption(txt);
 
-            dec = pc.Decryption(enc);
+         //   dec = pc.Decryption(enc);
             System.out.print("Your text:");
             System.out.println(txt);
             System.out.print("Encrypted Text:");
             System.out.println(enc);
             System.out.print("Decrypted Text:");
-            System.out.println(dec);
+        //    System.out.println(dec);
             System.out.println("Note:Press Enter to exit");
         }
 //ArrayList<Character> sequence = new ArrayList<>();

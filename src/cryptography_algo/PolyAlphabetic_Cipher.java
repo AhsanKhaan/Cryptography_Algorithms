@@ -70,7 +70,7 @@ public class PolyAlphabetic_Cipher implements Cryptography_algo {
                     temp += this.alphabet_chart.get(temp_index).get(ch_index);
                 }
             } else {
-                temp += '@';
+                temp += ' ';
             }
             if (temp_index < this.alphabet_chart.size() - 1) {
 
@@ -98,7 +98,7 @@ public class PolyAlphabetic_Cipher implements Cryptography_algo {
                     temp += this.alphabet_chart.get(0).get(ch_index);
                 }
             } else {
-                temp += '@';
+                temp += ' ';
             }
             if (temp_index < this.alphabet_chart.size() - 1) {
 
