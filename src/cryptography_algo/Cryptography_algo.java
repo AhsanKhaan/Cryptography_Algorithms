@@ -30,16 +30,20 @@ PlayFair_Cipher pfc=new PlayFair_Cipher();
 //            if (txt.equals("")) {
 //                break;
 //            } 
-            enc = pfc.Encryption("MeetMeAtTheSchoolHouse");
-            System.out.println(enc);
-
+                txt="MeetMeAtTheSchoolHouse";
+                enc = pfc.Encryption(txt);
+            
+            dec=pfc.Decryption(enc);
+            
          //   dec = pc.Decryption(enc);
             System.out.print("Your text:");
-//            System.out.println(txt);
+            System.out.println(txt);
             System.out.print("Encrypted Text:");
+            enc=enc.replace(" ", "");
             System.out.println(enc);
             System.out.print("Decrypted Text:");
-        //    System.out.println(dec);
+            dec=dec.replace(" ", "");
+            System.out.println(dec);
             System.out.println("Note:Press Enter to exit");
 //        }
 //ArrayList<Character> sequence = new ArrayList<>();

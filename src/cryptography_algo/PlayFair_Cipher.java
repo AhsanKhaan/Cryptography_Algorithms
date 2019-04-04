@@ -57,7 +57,7 @@ public class PlayFair_Cipher implements Cryptography_algo {
                     for (temp_int = 65; temp_int < 91; temp_int++) {
 
                         //for checking not to duplicate keyword loop
-                        System.out.println("char" + (char) temp_int);
+                       
                         if (this.CheckKeywordChar((char) temp_int)) {
 
                         } else {
@@ -108,21 +108,22 @@ public class PlayFair_Cipher implements Cryptography_algo {
                 String[] temp_index2 = index2.split("-");
                 //for same row
                 if (temp_index1[0].equals(temp_index2[0])) {
-                    
-                    temp += this.matrix.get(Integer.parseInt(temp_index1[0])).get(Integer.parseInt(temp_index1[1]) + 1) + this.matrix.get(Integer.parseInt(temp_index2[0])).get(Integer.parseInt(temp_index2[1]) + 1)+" ";
+
+                    temp += this.matrix.get(Integer.parseInt(temp_index1[0])).get(Integer.parseInt(temp_index1[1]) + 1) + this.matrix.get(Integer.parseInt(temp_index2[0])).get(Integer.parseInt(temp_index2[1]) + 1) + " ";
                     //for same column        
-                } else if (temp_index1[1].equals(temp_index2[1])) {                    
-                    temp += this.matrix.get(Integer.parseInt(temp_index1[0]) + 1).get(Integer.parseInt(temp_index1[1])) + this.matrix.get(Integer.parseInt(temp_index2[0])+1).get(Integer.parseInt(temp_index2[1]))+" ";
+                } else if (temp_index1[1].equals(temp_index2[1])) {
+                    temp += this.matrix.get(Integer.parseInt(temp_index1[0]) + 1).get(Integer.parseInt(temp_index1[1])) + this.matrix.get(Integer.parseInt(temp_index2[0]) + 1).get(Integer.parseInt(temp_index2[1])) + " ";
                 }//other cases
                 else {
-                    temp += this.matrix.get(Integer.parseInt(temp_index1[0])).get(Integer.parseInt(temp_index2[1])) + this.matrix.get(Integer.parseInt(temp_index2[0])).get(Integer.parseInt(temp_index1[1]))+" ";
+                    temp += this.matrix.get(Integer.parseInt(temp_index1[0])).get(Integer.parseInt(temp_index2[1])) + this.matrix.get(Integer.parseInt(temp_index2[0])).get(Integer.parseInt(temp_index1[1])) + " ";
 
                 }
 
             }
         }
-        System.out.println(temp);
-        temp=temp.replace("/J","");
+        temp = temp.replace("/J", "");
+        
+        
         return temp;
     }
 
@@ -152,7 +153,50 @@ public class PlayFair_Cipher implements Cryptography_algo {
 
     @Override
     public String Decryption(String txt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String temp = "";
+        txt = txt.replace("I", "I/J");
+      
+        String[] temp_list = txt.split(" ");
+        for (int i = 0; i < temp_list.length; i++) {
+            String index1, index2;
+            if ((temp_list[i].charAt(0) == 'I')) {
+                index1 = this.getIndex("" + temp_list[i].charAt(0)+"/J");
+                index2 = this.getIndex("" + temp_list[i].charAt(3));
+
+            }else if((temp_list[i].charAt(1) == 'I')){
+                index1 = this.getIndex("" + temp_list[i].charAt(0));
+                index2 = this.getIndex("" + temp_list[i].charAt(1)+"/J");
+            }else if((temp_list[i].length()>2)&&(temp_list[i].charAt(3) == 'I')){
+                index1 = this.getIndex("" + temp_list[i].charAt(0));
+                index2 = this.getIndex("" + temp_list[i].charAt(3)+"/J");
+                    } else {
+                index1 = this.getIndex("" + temp_list[i].charAt(0));
+                index2 = this.getIndex("" + temp_list[i].charAt(1));
+            }
+            if ((index1 == null) || (index2 == null)) {
+                temp += "@";
+            } else {
+                String[] temp_index1 = index1.split("-");
+                String[] temp_index2 = index2.split("-");
+                //for same row
+                if (temp_index1[0].equals(temp_index2[0])) {
+
+                    temp += this.matrix.get(Integer.parseInt(temp_index1[0])).get(Integer.parseInt(temp_index1[1]) - 1) + this.matrix.get(Integer.parseInt(temp_index2[0])).get(Integer.parseInt(temp_index2[1]) - 1) + " ";
+                    //for same column        
+                } else if (temp_index1[1].equals(temp_index2[1])) {
+                    temp += this.matrix.get(Integer.parseInt(temp_index1[0]) - 1).get(Integer.parseInt(temp_index1[1])) + this.matrix.get(Integer.parseInt(temp_index2[0]) - 1).get(Integer.parseInt(temp_index2[1])) + " ";
+                }//other cases
+                else {
+                    temp += this.matrix.get(Integer.parseInt(temp_index1[0])).get(Integer.parseInt(temp_index2[1])) + this.matrix.get(Integer.parseInt(temp_index2[0])).get(Integer.parseInt(temp_index1[1])) + " ";
+
+                }
+
+            }
+        }
+     
+        temp = temp.replace("X", "");
+        
+        return temp;
     }
 
     private boolean CheckKeywordChar(char ch) {
