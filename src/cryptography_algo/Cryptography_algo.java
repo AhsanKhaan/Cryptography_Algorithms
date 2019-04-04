@@ -24,22 +24,24 @@ PlayFair_Cipher pfc=new PlayFair_Cipher();
 //    pc.printTable();
     String enc, dec, txt;
         
-        while (true) {
-            System.out.print("Enter the text you want to encrypt:");
-            txt = new Scanner(System.in).nextLine();
-            if (txt.equals("")) {
-                break;
-            }  enc = pfc.Encryption(txt);
+//        while (true) {
+//            System.out.print("Enter the text you want to encrypt:");
+//            txt = new Scanner(System.in).nextLine();
+//            if (txt.equals("")) {
+//                break;
+//            } 
+            enc = pfc.Encryption("MeetMeAtTheSchoolHouse");
+            System.out.println(enc);
 
          //   dec = pc.Decryption(enc);
             System.out.print("Your text:");
-            System.out.println(txt);
+//            System.out.println(txt);
             System.out.print("Encrypted Text:");
             System.out.println(enc);
             System.out.print("Decrypted Text:");
         //    System.out.println(dec);
             System.out.println("Note:Press Enter to exit");
-        }
+//        }
 //ArrayList<Character> sequence = new ArrayList<>();
 //for (char c = 'A' ; c <= 'Z' ; c++) {
 //    sequence.add(c);
