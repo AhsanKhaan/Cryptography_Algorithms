@@ -20,40 +20,31 @@ public interface Cryptography_algo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-PlayFair_Cipher pfc=new PlayFair_Cipher();
+RailFence_Cipher rfc=new RailFence_Cipher();
 //    pc.printTable();
     String enc, dec, txt;
         
-//        while (true) {
-//            System.out.print("Enter the text you want to encrypt:");
-//            txt = new Scanner(System.in).nextLine();
-//            if (txt.equals("")) {
-//                break;
-//            } 
+        while (true) {
+            System.out.print("Enter the text you want to encrypt:");
+            txt = new Scanner(System.in).nextLine();
+            if (txt.equals("")) {
+                break;
+            } 
                 txt="MeetMeAtTheSchoolHouse";
-                enc = pfc.Encryption(txt);
+                enc = rfc.Encryption(txt);
             
-            dec=pfc.Decryption(enc);
+  //          dec=rfc.Decryption(enc);
             
-         //   dec = pc.Decryption(enc);
+            dec = rfc.Decryption(enc);
             System.out.print("Your text:");
             System.out.println(txt);
             System.out.print("Encrypted Text:");
-            enc=enc.replace(" ", "");
             System.out.println(enc);
             System.out.print("Decrypted Text:");
-            dec=dec.replace(" ", "");
-            System.out.println(dec);
+              System.out.println(dec);
             System.out.println("Note:Press Enter to exit");
-//        }
-//ArrayList<Character> sequence = new ArrayList<>();
-//for (char c = 'A' ; c <= 'Z' ; c++) {
-//    sequence.add(c);
-//}
-//Collections.shuffle(sequence);
-//for (Character c : sequence) {
-//    System.out.println(c);
-//}
+        }
+
     }
 
     public String Encryption(String txt);
