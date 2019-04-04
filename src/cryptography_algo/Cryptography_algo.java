@@ -20,7 +20,10 @@ public interface Cryptography_algo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-RailFence_Cipher rfc=new RailFence_Cipher();
+        Scanner scan=new Scanner(System.in);
+        System.out.println("ENTER KEY:");
+        String key=scan.nextLine();
+ColumnTranspositionCipher ctc=new ColumnTranspositionCipher(key);
 //    pc.printTable();
     String enc, dec, txt;
         
@@ -30,12 +33,12 @@ RailFence_Cipher rfc=new RailFence_Cipher();
             if (txt.equals("")) {
                 break;
             } 
-                txt="MeetMeAtTheSchoolHouse";
-                enc = rfc.Encryption(txt);
+                
+                enc = ctc.Encryption(txt);
             
   //          dec=rfc.Decryption(enc);
             
-            dec = rfc.Decryption(enc);
+            dec = ctc.Decryption(enc);
             System.out.print("Your text:");
             System.out.println(txt);
             System.out.print("Encrypted Text:");
